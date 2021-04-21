@@ -1,0 +1,9 @@
+Files in this directory without licensing info use the following:
+/**
+ * Copyright (c) 2015 Sebastian Lenz.
+ * Copyright (c) 2016-2021 TypeDoc Contributors.
+ * Licensed under the Apache License 2.0.
+ */
+ 
+icons.png has been modified for variation in colors.
+
