@@ -37,6 +37,11 @@ const config = {
                     from: "**/*.hbs",
                     to: path.resolve(__dirname, "bin/default"),
                 },
+                {
+                    context: path.resolve(__dirname, "src/default"),
+                    from: "**/*.js",
+                    to: path.resolve(__dirname, "bin/default"),
+                },
             ],
         }),
     ],

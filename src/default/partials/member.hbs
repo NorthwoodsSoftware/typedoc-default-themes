@@ -1,7 +1,32 @@
 <section class="tsd-panel tsd-member {{cssClasses}}">
     <a name="{{anchor}}" class="tsd-anchor"></a>
     {{#if name}}
-        <h3>{{#each flags}}<span class="tsd-flag ts-flag{{this}}">{{this}}</span> {{/each}}{{{wbr name}}}</h3>
+        <h3>
+            {{#each flags}}<span class="tsd-flag ts-flag{{this}}">{{this}}</span> {{/each}}
+            {{#isReadOnly this}}<span class="tsd-flag ts-flagReadOnly">Read-only</span> {{/isReadOnly}}
+            {{{wbr name}}}
+            {{!--For properties (accessors in TypeDoc), print the type in the header--}}
+            {{#if hasGetterOrSetter}}
+                {{#if getSignature}}
+                    {{#with getSignature}}
+                        {{#compact}}
+                            {{#if type}}
+                                <span class="tsd-signature-symbol">:&nbsp;</span>
+                                {{#with type}}{{>type}}{{/with}}
+                            {{/if}}
+                        {{/compact}}
+                    {{/with}}
+                {{/if}}
+            {{!--For others (properties and constants), print the type in the header if we have one--}}
+            {{else}}
+                {{#compact}}
+                    {{#if type}}
+                        <span class="tsd-signature-symbol">:&nbsp;</span>
+                        {{#with type}}{{>type}}{{/with}}
+                    {{/if}}
+                {{/compact}}
+            {{/if}}
+        </h3>
     {{/if}}
 
     {{#if signatures}}

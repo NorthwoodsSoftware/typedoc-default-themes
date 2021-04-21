@@ -1,3 +1,32 @@
+{{#if model.flags.isExtension}}
+    <section class="tsd-panel tsd-extension">
+        <p>
+            This is an extension and not part of the main GoJS library.
+            Note that the API for this class may change at any time.
+            If you intend to use an extension in production, you should copy the code to your own source directory.
+            Extensions can be found in the GoJS kit under the <code>extensions</code> or <code>extensionsTS</code> folders.
+            See the <a href="{{relativeURL "../intro/extensions.html"}}">Extensions intro page</a> for more information.
+        </p>
+    </section>
+{{/if}}
+
+{{#if model.flags.isStorage}}
+    <section class="tsd-panel tsd-extension">
+        <p>
+            This is part of GoCloudStorage and not part of the main GoJS library.
+            Storage can be found in the GoJS kit under the <code>projects</code> folder.
+            See the <a href="{{relativeURL "../intro/storage.html"}}">Storage intro page</a> for more information.
+        </p>
+    </section>
+{{/if}}
+
+{{#if model.typeHierarchy}}
+    <section class="tsd-panel tsd-hierarchy">
+        <h3>Hierarchy</h3>
+        {{#with model.typeHierarchy}}{{> hierarchy}}{{/with}}
+    </section>
+{{/if}}
+
 {{#with model}}
     {{#if hasComment}}
         <section class="tsd-panel tsd-comment">
@@ -10,13 +39,6 @@
     <section class="tsd-panel tsd-type-parameters">
         <h3>Type parameters</h3>
         {{#with model}}{{> typeParameters}}{{/with}}
-    </section>
-{{/if}}
-
-{{#if model.typeHierarchy}}
-    <section class="tsd-panel tsd-hierarchy">
-        <h3>Hierarchy</h3>
-        {{#with model.typeHierarchy}}{{> hierarchy}}{{/with}}
     </section>
 {{/if}}
 
@@ -74,6 +96,6 @@
 {{/if}}
 
 {{#with model}}
-    {{> index}}
+    {{> index settings=../settings}}
     {{> members}}
 {{/with}}

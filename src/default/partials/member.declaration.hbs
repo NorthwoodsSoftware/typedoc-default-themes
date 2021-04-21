@@ -1,24 +1,3 @@
-<div class="tsd-signature tsd-kind-icon">{{#compact}}
-    {{{wbr name}}}
-    {{#if typeParameters}}
-        &lt;
-        {{#each typeParameters}}
-            {{#if @index}},&nbsp;{{/if}}
-            {{name}}
-        {{/each}}
-        &gt;
-    {{/if}}
-    <span class="tsd-signature-symbol">{{#if isOptional}}?{{/if}}:</span>&nbsp;{{#with type}}{{>type}}{{/with}}
-    {{#if defaultValue}}
-        <span class="tsd-signature-symbol">
-        &nbsp;=&nbsp;
-        {{defaultValue}}
-        </span>
-    {{/if}}
-{{/compact}}</div>
-
-{{> member.sources}}
-
 {{> comment}}
 
 {{#if typeParameters}}

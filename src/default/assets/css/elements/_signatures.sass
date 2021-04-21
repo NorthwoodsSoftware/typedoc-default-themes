@@ -27,8 +27,8 @@
             left: 10px
 
     .tsd-panel > &
-        margin-left: -20px
-        margin-right: -20px
+        margin-left: -15px
+        margin-right: -15px
         border-width: 1px 0
 
         &.tsd-kind-icon
@@ -56,8 +56,8 @@
 //
 .tsd-signatures
     padding: 0
-    margin: 0 0 1em 0
-    border: 1px solid var(--color-panel-divider)
+    margin: 0
+    border-bottom: 1px solid var(--color-panel-divider)
 
     .tsd-signature
         margin: 0
@@ -67,15 +67,15 @@
         &:first-child
             border-top-width: 0
 
-        &.current
-            background-color: var(--color-panel-divider)
+        // &.current
+        //     background-color: var(--color-panel-divider)
 
-    &.active > .tsd-signature
-        cursor: pointer
+    // &.active > .tsd-signature
+    //     cursor: pointer
 
     .tsd-panel > &
-        margin-left: -20px
-        margin-right: -20px
+        margin-left: -15px
+        margin-right: -15px
         border-width: 1px 0
 
         .tsd-signature.tsd-kind-icon
@@ -85,7 +85,6 @@
                 left: 20px
 
     .tsd-panel > a.anchor + &
-        border-top-width: 0
         margin-top: -20px
 
 // Holds the descriptions related to a list of signatures.
@@ -103,17 +102,20 @@
 ul.tsd-descriptions
     position: relative
     overflow: hidden
+    transition: height 0.3s
+    margin-top: 0
     padding: 0
+    padding-top: 10px
     list-style: none
 
     > li
         @extend %prevent-children-margin
 
     &.active > .tsd-description
-        display: none
+        display: block
 
-        &.current
-            display: block
+        // &.current
+        //     display: block
 
         &.fade-in
             animation: fade-in-delayed 0.3s
@@ -130,7 +132,7 @@ ul.tsd-descriptions
 
     h4
         font-size: $FONT_SIZE
-        margin: 1em 0 0.5em 0
+        margin: 0.5em 0
 
 ul.tsd-parameters,
 ul.tsd-type-parameters
@@ -140,11 +142,11 @@ ul.tsd-type-parameters
 
     > li.tsd-parameter-signature
         list-style: none
-        margin-left: -20px
+        margin-left: -15px
 
     h5
         font-size: $FONT_SIZE
-        margin: 1em 0 0.5em 0
+        margin: 0.5em 0
 
-    .tsd-comment
-        margin-top: -0.5em
+    .tsd-comment p
+        margin: 0.5em 0

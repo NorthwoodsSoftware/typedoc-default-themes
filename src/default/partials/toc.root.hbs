@@ -2,16 +2,31 @@
     </ul>
     <ul class="current">
 {{/if}}
-<li class="{{#if isInPath}}current{{/if}} {{cssClasses}}">
-    <a href="{{relativeURL url}}" class="tsd-kind-icon">{{{wbr title}}}</a>
-    {{#if children}}
-        <ul>
-            {{#each children}}
-                {{> toc}}
-            {{/each}}
-        </ul>
+{{#ifCond reflection.flags.isExtension "||" reflection.flags.isStorage}}
+    {{#if isInPath}}
+        <li class="current {{cssClasses}}">
+            <a href="{{relativeURL url}}" class="tsd-kind-icon">{{{wbr title}}}</a>
+            {{#if children}}
+                <ul>
+                    {{#each children}}
+                        {{> toc}}
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
     {{/if}}
-</li>
+{{else}}
+    <li class="{{#if isInPath}}current{{/if}} {{cssClasses}}">
+        <a href="{{relativeURL url}}" class="tsd-kind-icon">{{{wbr title}}}</a>
+        {{#if children}}
+            <ul>
+                {{#each children}}
+                    {{> toc}}
+                {{/each}}
+            </ul>
+        {{/if}}
+    </li>
+{{/ifCond}}
 {{#if isInPath}}
     </ul>
     <ul class="after-current">

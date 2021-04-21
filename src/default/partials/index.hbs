@@ -1,17 +1,24 @@
 {{#if categories}}
     <section class="tsd-panel-group tsd-index-group">
-        <h2>Index</h2>
+        <h2>{{settings.indexTitle}}</h2>
         <section class="tsd-panel tsd-index-panel">
             <div class="tsd-index-content">
                 {{#each categories}}
-                    <section class="tsd-index-section">
-                        <h3>{{title}}</h3>
-                        <ul class="tsd-index-list">
-                            {{#each children}}
-                                <li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
-                            {{/each}}
-                        </ul>
-                    </section>
+                    {{#ifCond title "===" "Type"}}
+                    {{else}}
+                        <section class="tsd-index-section">
+                            {{#unless settings.hideGoJSNav}}
+                                <h3>{{title}} Classes</h3>
+                            {{/unless}}
+                            <ul class="tsd-index-list">
+                                {{#each children}}
+                                    {{#containsTag 'unindexed' this}}
+                                    {{else}}<li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
+                                    {{/containsTag}}
+                                {{/each}}
+                            </ul>
+                        </section>
+                    {{/ifCond}}
                 {{/each}}
             </div>
         </section>
@@ -29,7 +36,9 @@
                                 <h3>{{#if title}}{{title}} {{/if}}{{../title}}</h3>
                                 <ul class="tsd-index-list">
                                     {{#each children}}
-                                        <li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
+                                        {{#containsTag 'unindexed' this}}
+                                        {{else}}<li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
+                                        {{/containsTag}}
                                     {{/each}}
                                 </ul>
                             {{/each}}
@@ -37,7 +46,9 @@
                             <h3>{{title}}</h3>
                             <ul class="tsd-index-list">
                                 {{#each children}}
-                                    <li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
+                                    {{#containsTag 'unindexed' this}}
+                                    {{else}}<li class="{{cssClasses}}"><a href="{{relativeURL url}}" class="tsd-kind-icon">{{#if name}}{{{wbr name}}}{{else}}<em>{{{wbr kindString}}}</em>{{/if}}</a></li>
+                                    {{/containsTag}}
                                 {{/each}}
                             </ul>
                         {{/if}}

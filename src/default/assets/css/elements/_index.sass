@@ -22,31 +22,32 @@
 //
 .tsd-index-panel
     .tsd-index-content
-        margin-bottom: -30px !important
+        margin-bottom: 0px !important
 
     .tsd-index-section
-        margin-bottom: 30px !important
+        margin-bottom: 0px !important
 
     h3
         @extend h4
-        margin: 0 -20px 10px -20px
-        padding: 0 20px 10px 20px
+        margin: 0 -15px 10px -15px
+        padding: 0 15px 10px 15px
         border-bottom: 1px solid var(--color-panel-divider)
 
     ul.tsd-index-list
         +vendors(column-count, 3)
-        +vendors(column-gap, 20px)
+        +vendors(column-gap, 15px)
         padding: 0
         list-style: none
         line-height: $LINE_HEIGHT
 
-        +size-xs-sm
+        +size-xs
             +vendors(column-count, 1)
 
-        +size-md
+        +size-sm-md
             +vendors(column-count, 2)
 
         li
+            +vendors(column-break-inside, avoid)
             +vendors(page-break-inside, avoid)
 
     a,

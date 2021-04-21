@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900,700)
+
+// Displays a box around text
+.box, .boxrun, .boxread
+    border: 1px solid #BBB
+    padding: .6em
+    background: #F4F4FA
+
+// Copyright fineprint on right side of header
+.top-copyright
+    float: right
+    font-size: .7em
+
+// Copyright at bottom of page
+.bottom-copyright
+    margin-bottom: 15px
+
+// Navbar settings
+#toplogo
+    background-color: #1F4963 // nwoods blue
+    font-family: 'Lato', sans-serif
+    font-weight: 900
+    font-size: 120%
+    color: white
+    padding: 6px
+    border-radius: 4px
+
+.navbar-inverse .navbar-nav > li > a
+    color: white
+    font-weight: bold
+
+.navbar-brand
+    height: auto
+    margin: 9px 10px
+    padding: 6px
+
+.navbar-inverse .navbar-brand
+    color: white
+
+.navbar-inverse .navbar-brand:hover
+    background-color: #1F4963 // nwoods blue
+
+.nav > li > a
+    font-family: 'Lato', sans-serif
+    padding-left: 9px
+    padding-right: 9px
+
+.navbar
+    border-radius: 0px
+    border-width: 0px
+
+.navbar-right
+    margin-right: 0px
+
+.nav li
+    float: left
+    line-height: 40px
+    -o-transition-duration: .5s
+    -ms-transition-duration: .5s
+    -moz-transition-duration: .5s
+    -webkit-transition-duration: .5s
+    transition-duration: .5s
+
+.nav li:hover
+    background-color: #707070
+
+.buy
+    background-color: #79C900
+
+.activate
+    background-color: #00A9C9
+
+// bootstrap overrides
+.container
+    max-width: 1170px
+    padding-left: inherit
+    padding-right: inherit
+
+.container>.navbar-header
+    margin-left: inherit
+    margin-right: inherit
+
+.plr15
+    padding-left: 15px
+    padding-right: 15px
+
+label
+    max-width: none
+    margin-bottom: 0
+    font-weight: inherit
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+    font-weight: bold
+    line-height: inherit
+
+#non-fixed-nav
+    margin-bottom: 0px
+
+// bootstrap media breakpoints
+@media (min-width: 768px)
+    .navbar>.container .navbar-brand
+        margin-left: 10px
+
+@media (max-width: 767px)
+    .navbar-collapse.collapse
+        display: none !important
+
+    .navbar-collapse.collapse.in
+        display: block !important
+
+    .navbar-header .collapse, .navbar-toggle
+        display: block !important
+
+    .navheader-container
+        position: relative
+        width: 100%
+        height: 50px
+
+    .navheader-container .navheader-collapse
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+
+    .navbar-nav
+        margin: 7.5px 0px
