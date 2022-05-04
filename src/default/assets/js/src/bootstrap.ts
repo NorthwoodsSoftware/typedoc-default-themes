@@ -9,6 +9,16 @@ import "../../css/main.sass";
 
 initSearch();
 
+// formerly in api.js
+var hash = null;
+function changeHash() {
+  hash = window.location.hash.slice(1);
+  if (hash) (document.getElementsByName(hash)[0].parentNode as any).style.backgroundColor = 'rgba(230, 242, 255, .4)';
+}
+document.addEventListener("DOMContentLoaded", changeHash);
+window.addEventListener("hashchange", changeHash);
+
+
 registerComponent(MenuHighlight, ".menu-highlight");
 registerComponent(Signature, ".tsd-signatures");
 registerComponent(Toggle, "a[data-toggle]");

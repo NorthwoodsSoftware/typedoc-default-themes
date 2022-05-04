@@ -7,6 +7,7 @@
     <meta name="description" content="Documentation for {{project.name}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="{{relativeURL "../assets/css/style.css"}}">
     <link rel="stylesheet" href="{{relativeURL "assets/css/main.css"}}">
     <script async src="{{relativeURL "assets/js/search.js"}}" id="search-script"></script>
 </head>
@@ -14,8 +15,8 @@
 
 {{> header}}
 
-<div class="container container-main plr-15">
-    <div class="row">
+<div class="tsd w-full max-w-screen-xl mx-auto pb-4">
+    <div class="row px-2 w-full">
         <div class="col-8 col-content">
             {{{contents}}}
         </div>
@@ -43,9 +44,29 @@
 
 <div class="overlay"></div>
 <script src="{{relativeURL "assets/js/main.js"}}"></script>
-<script src="{{relativeURL "../assets/js/api.js"}}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1506307-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'UA-1506307-5');
+  var getOutboundLink = function(url, label) {
+    gtag('event', 'click', {
+      'event_category': 'outbound',
+      'event_label': label,
+      'transport_type': 'beacon'
+    });
+  }
 
-{{> analytics}}
+  // topnav
+  var topButton = document.getElementById("topnavButton");
+  var topnavList = document.getElementById("topnavList");
+  topButton.addEventListener("click", function() {
+    this.classList.toggle("active");
+    topnavList.classList.toggle("hidden");
+    document.getElementById("topnavOpen").classList.toggle("hidden");
+    document.getElementById("topnavClosed").classList.toggle("hidden");
+  });
+</script>
 
 </body>
 </html>
